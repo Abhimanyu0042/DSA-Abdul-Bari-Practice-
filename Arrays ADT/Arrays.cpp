@@ -68,7 +68,28 @@ int Linearsearch(struct array *arr, int key){
     
 }
 
-//For Binary the array will be split into two
+//For Binary the array will be split into arrays in two parts
+int Binarysearch(struct array *arr, int key){
+    int l, mid,h;
+    l=0;
+    mid=((l+h)/2);
+    h = arr->length - 1;
+
+    while(l<=h){
+        mid=(l+h)/2;
+        if(key == arr->A[mid]){
+            cout<<"Element is found that is at index "<<mid;
+            break;
+        }
+        else if(key<arr->A[mid]){
+            h = mid - 1;
+        }
+        else{
+            l = mid + 1;
+        }
+    }
+    return -1;
+    } 
 
 int main(){
     struct array arr;
@@ -110,6 +131,8 @@ int main(){
     Linearsearch(&arr,6);
 
     Display(arr);
+
+    Binarysearch(&arr, 15);
 
     return 0;
 }
